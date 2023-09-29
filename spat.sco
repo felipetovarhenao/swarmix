@@ -19,11 +19,15 @@ list getspeakers(float N, float o) {
     return s
 }
 
-list loctopan(list loc, list s, float size) {
+list loctopan(list loc, list s) {
     list d
     d = {}
+    float x, sum
     for (i = 0; i < len(s); i += 1) {
-        d[i] = 1.0 / 2^euclid(s[i], loc)
+        x = (1.0 / 2^euclid(s[i], loc))^2
+        d[i] = x
+        sum += x 
     }
-    return d
+
+    return normalize(d)
 }

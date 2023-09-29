@@ -1,22 +1,3 @@
-float remap(float x, float inmin, float inmax, float outmin, float outmax) {
-    float mi, ai 
-    mi = ((outmax - outmin) / (inmax - inmin))
-    ai = outmin - inmin * mi
-    return mi * x + ai
-}
-
-float clip(float i, float min, float max) {
-    float out
-    if (i < min) {
-        out = min
-    } else if (i > max) {
-        out = max
-    } else {
-        out = i
-    }
-    return out
-}
-
 float rtodur(float d, float r) {
     float t, td
     t = log2(r)

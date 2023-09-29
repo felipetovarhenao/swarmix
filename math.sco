@@ -25,6 +25,7 @@ float modn(float n, float m) {
 float _sin_cos(float x, float m) {
     float r, i, c, t, v
     r = 0
+    x = modn(x, TWO_PI)
     for (i = 0; i < 10; i += 1) {
         c = (-1)^i
         v = (2 * i + m)
@@ -105,7 +106,7 @@ float euclid(list a, list b) {
     for (i = 0; i < len(a); i += 1) {
         s += (a[i] - b[i])^2
     }
-    return sqrt(s)
+    return s^0.5
 }
 
 list weuclid(list la, list lb, list w) {
@@ -118,4 +119,50 @@ list weuclid(list la, list lb, list w) {
         out = sqrt(reduce(lab))
     }
     return out 
+}
+
+float remap(float x, float inmin, float inmax, float outmin, float outmax) {
+    float r
+
+    if (!outmin) outmin = 0
+    if (!outmax) outmax = 1
+    
+    r = inmax - inmin
+    return ((x - inmin) / r) * (outmax - outmin) + outmin
+}
+
+/* 
+    Normalizes input list such that the sum of all elements is 1
+*/
+float normalize(list l) {
+    float i, s
+    list n
+
+    n = {}
+    for (i = 0; i < len(l); i += 1) {
+        s += l[i]
+    }
+
+    if (s == 0) {
+        print("Warning: list not normalized — all elements add up to 0")
+        return l
+    }
+
+    for (i = 0; i < len(l); i += 1) {
+        n[i] = l[i] / s
+    }
+    
+    return  n
+}
+
+float clip(float i, float min, float max) {
+    float out
+    if (i < min) {
+        out = min
+    } else if (i > max) {
+        out = max
+    } else {
+        out = i
+    }
+    return out
 }
