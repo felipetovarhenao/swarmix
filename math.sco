@@ -10,7 +10,7 @@ float fact(float n) {
     float r, i
     r = 1
     n = abs(n)
-    if (n > 0) {
+    if (n > 1) {
         for (i = 0; i < n; i += 1) {
             r *= (n - i) 
         }
@@ -22,25 +22,25 @@ float modn(float n, float m) {
     return n - m*trunc(n/m)
 }
 
-float cos(float x) {
-    float out, i
-    out = 0
-    x = modn(x, PI*2)
-    for (i = 0; i < 16; i += 1) {
-        out += pow(-1, i) * pow(x, 2*i) / fact(2*i) 
+float sincos(float x, float m) {
+    float r, i, c, t, v
+    r = 0
+    for (i = 0; i < 10; i += 1) {
+        c = (-1)^i
+        v = (2 * i + m)
+        t = c * (x^v) / fact(v)
+        r += t
     }
-    return out 
+    return r
 }
 
 float sin(float x) {
-    float out, i
-    out = 0
-    x = modn(x, PI*2)
-    for (i = 0; i < 16; i += 1) {
-        out += pow(-1, i) * pow(x, (2*i) + 1) / fact((2*i) + 1) 
-    }
-    return out 
+    return sincos(x, 1)
 }
+
+float cos(float x) {
+    return sincos(x, 0)
+} 
 
 float tan(float x) {
     return sin(x)/cos(x)

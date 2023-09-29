@@ -1,11 +1,13 @@
-list gen_speaker_array(float nchans) {
-    speakers = {}
-    rot = 360/nchans
-    for (i = 0; i < nchans; i += 1) {
-        angle = rot*i
-        speakers[i] = poltocar(angle, 1)
+list speakers(float N) {
+    list s
+    s = {}
+
+    float a, i
+    a = TWO_PI / N
+    for (i = 0; i < N; i += 1) {
+        s[i] = {cos(a * i), sin(a * i)}
     }
-    return speakers
+    return s
 }
 
 list spatvals(list sploc, list srcloc, float size) {
