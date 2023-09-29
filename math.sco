@@ -91,10 +91,9 @@ float degtorad(float d) {
     return (d/180)*PI
 }
 
-list poltocar(float theta, float mag) {
-    float rad
-    rad = degtorad(theta)
-    return {cos(rad) * mag, sin(rad) * mag}
+list poltocar(float a, float m) {
+    if (!m) m = 1
+    return {cos(a) * m, sin(a) * m}
 }
 
 float euclid(list a, list b) {

@@ -11,8 +11,8 @@ list getspeakers(float N, float o) {
     }
 
     for (i = 0; i < N; i += 1) {
-        x = fround(cos(a * -i + o) * 100) / 100
-        y = fround(sin(a * -i + o) * 100) / 100
+        x = cos(a * -i + o)
+        y = sin(a * -i + o)
         s[i] = {x, y}
     }
 
