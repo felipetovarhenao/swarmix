@@ -576,6 +576,13 @@ list random_array(float n) {
     return out / sum
 }
 
+float orfloat(float a, float b) {
+    if (!a) {
+        return b
+    }
+    return a
+}
+
 
 
 

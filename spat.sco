@@ -1,21 +1,29 @@
-list speakers(float N) {
+list getspeakers(float N, float o) {
     list s
     s = {}
 
     float a, i
     a = TWO_PI / N
-    for (i = 0; i < N; i += 1) {
-        s[i] = {cos(a * i), sin(a * i)}
+    float x, y
+
+    if (!o) {
+        o = 0
     }
+
+    for (i = 0; i < N; i += 1) {
+        x = fround(cos(a * -i + o) * 100) / 100
+        y = fround(sin(a * -i + o) * 100) / 100
+        s[i] = {x, y}
+    }
+
     return s
 }
 
-list spatvals(list sploc, list srcloc, float size) {
+list loctopan(list loc, list s, float size) {
     list d
-    float sum
     d = {}
-    for (i = 0; i < len(sploc); i += 1) {
-        d[i] = 1.0/ pow(2, size * euclid(sploc[i], srcloc))
+    for (i = 0; i < len(s); i += 1) {
+        d[i] = 1.0 / 2^euclid(s[i], loc)
     }
     return d
 }

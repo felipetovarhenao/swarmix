@@ -22,7 +22,7 @@ float modn(float n, float m) {
     return n - m*trunc(n/m)
 }
 
-float sincos(float x, float m) {
+float _sin_cos(float x, float m) {
     float r, i, c, t, v
     r = 0
     for (i = 0; i < 10; i += 1) {
@@ -35,12 +35,27 @@ float sincos(float x, float m) {
 }
 
 float sin(float x) {
-    return sincos(x, 1)
+    return _sin_cos(x, 1)
 }
 
 float cos(float x) {
-    return sincos(x, 0)
+    return _sin_cos(x, 0)
 } 
+
+float sign(float x) {
+    if (x > 0) {
+        return 1
+    }
+    return -1
+}
+
+/*
+    The cmix implementation of round doesn't behave as expected with negative values.
+    As such, use this function as a temporary replacement.
+*/
+float fround(float x) {
+    return trunc(abs(x) + 0.5) * sign(x)
+}
 
 float tan(float x) {
     return sin(x)/cos(x)
@@ -82,16 +97,16 @@ list poltocar(float theta, float mag) {
     return {cos(rad) * mag, sin(rad) * mag}
 }
 
-float euclid(list la, list lb) {
-    float i, out
-    if (len(la) == len(lb)) {
-        list lab
-        for (i = 0; i < len(la); i += 1) {
-            lab[i] = pow(la[i] - lb[i], 2)
-        }
-        out = sqrt(reduce(lab))
+float euclid(list a, list b) {
+    if (len(a) != len(b)) {
+        print('lists must be of same length')
+        exit()
     }
-    return out 
+    float i, s
+    for (i = 0; i < len(a); i += 1) {
+        s += (a[i] - b[i])^2
+    }
+    return sqrt(s)
 }
 
 list weuclid(list la, list lb, list w) {
