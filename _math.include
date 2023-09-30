@@ -1,5 +1,8 @@
+/* 
+    Natural exponent
+*/
 float exp(float n) {
-    return pow(e, n)
+    return e^n
 }
 
 /*

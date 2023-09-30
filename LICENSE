@@ -1,25 +1,3 @@
-# **xcmix**: Extended RTcmix Library
-
-### Description
-
-**xcmix** is a third-party library for the RTcmix scripting language. The library includes of a wide variety of functions for data processing, unit conversion, mathematical functions, and more.
-
-### Documentation
-_Coming soon..._
-
-### Installation
-
-In the root folder of the RTCmix tree (typically `${HOME}/RTcmix`), create a new folder named `minclude`, and move the file `xcmix` and all `.include` files included in this repo into that folder.
-
-### Usage
-
-To use `xcmix`, include the following line at the top of your script:
-```
-include xcmix
-```
-
-### License
-
 ISC License
 Copyright (c) 2023, Felipe Tovar-Henao
 

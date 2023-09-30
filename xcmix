@@ -1,7 +1,7 @@
 include _globals.include
 include _math.include
 include _misc.include
-include _spat.include
+include _spatial.include
 include _units.include
 include _lists.include
 include _random.include

@@ -1,6 +1,6 @@
 /*
-	Recursively applies a function to every element in the list
-	NOTE: As of 9/30/23, the max. recursion depth level is 2 :(
+    Recursively applies a function f to every element in list x
+    NOTE: As of 9/30/23, the max. recursion depth level is 2 :(
 */
 list mapelem(list x, mfunction f) {
 	float i
@@ -17,7 +17,7 @@ list mapelem(list x, mfunction f) {
 }
 
 /*
-	Deep-copies input list.
+	Deep-copies a list x.
 */
 list deepcopy(list x) {
 	float i
@@ -34,16 +34,22 @@ list deepcopy(list x) {
 }
 
 /* 
-	Reverses the order of element in a list
+	Reverses the order of element in a list x in place
 */
-list rev(list l) {
-    float i
-    list y
-    y = {}
-    for (i = 0; i < len(l); i += 1) {
-        y[i] = l[len(l) - 1 - i]
+list rev(list x) {
+    float i, j, N
+    N = len(x)
+
+    list tmp
+    tmp = {}
+
+    for (i = 0; i < trunc(N / 2); i += 1) {
+        j = N-i-1
+        tmp[0] = x[j]
+        x[j] = x[i]
+        x[i] = tmp[0]
     }
-    return y
+    return x
 }
 
 
@@ -74,64 +80,46 @@ list dx2x(list dx, float s) {
 }
 
 /* 
-	Sorts a list numerically
+	Sorts a list numerically in place (Bubble-sort)
 */
-list sort(list inl) {
-    list l
-    l = inl
+list sort(list x) {
 	float i, j, n
-	n = len(l)
+	n = len(x)
 	for (i = 0; i < n - 1; i += 1) {
 		for (j = 0; j < n - i - 1; j += 1) {
-			if (l[j] > l[j + 1]) {
+			if (x[j] > x[j + 1]) {
 				float tmp
-				tmp = l[j]
-				l[j] = l[j + 1]
-				l[j + 1] = tmp
+				tmp = x[j]
+				x[j] = x[j + 1]
+				x[j + 1] = tmp
 			}
 		}
 	}
-	return l
+	return x
 }
 
 /*
-	Slices a list
+	Slices a list. Negative indices for right-to-left indexing are allowed.
 */
-list slice(list l, float n) {
-    float i
-    list la, lb, lout
-    la = {}
-    lb = {}
-    for (i = 0; i < len(l); i += 1) {
+list slice(list x, float n) {
+    float i, N
+    N = len(x)
+
+    if (n < 0) {
+        n = max(0, N+n)
+    }
+    
+    list l, r
+    l = {}
+    r = {}
+    for (i = 0; i < N; i += 1) {
         if (i < n) {
-            la[i] = l[i]
+            l[i] = x[i]
         } else if (i >= n) {
-            lb[i - n] = l[i]
+            r[i - n] = x[i]
         }
     }
-    lout = {la, lb}
-    return lout
-} 
-
-
-/*
-	Slices a list with reversed index
-*/
-list ecils(list l, float n) {
-    float i
-    n = len(l) - n
-    list la, lb, lout
-    la = {}
-    lb = {}
-    for (i = 0; i < len(l); i += 1) {
-        if (i < n) {
-            la[i] = l[i]
-        } else if (i >= n) {
-            lb[i - n] = l[i]
-        }
-    }
-    lout = {la, lb}
-    return lout
+    return {l, r}
 } 
 
 /*
@@ -225,31 +213,32 @@ list frames(list l, float ws, float hs) {
 }
 
 /*
-	Performs string-based equality comparison between 2 lists
+	Performs string-based deep equality comparison between 2 lists
 */
-float compare(list la, list lb) {
-    float out
-    if (len(la) == len(lb)) {
-        float i
-        out = 1
-        for (i = 0; i < len(la); i += 1) {
-            if ((type(la[i]) == type(lb[i])) && (type(la[i]) == "float" || type(la[i]) == "string")) {
-                if (la[i] != lb[i]) {
-                    out = 0
-                    i = len(la)
-                }
-            } else if (type(la[i]) == "list" && type(lb[i]) == "list") {
-                if (!compare(la[i], lb[i])) {
-                    out = 0
-                    i = len(la)
-                }
-            } else {
-                out = 0
-                i = len(la)
+float deepeq(list a, list b) {
+    float y, i, N
+    N = len(a)
+    if (N != len(b)) {
+        return 0
+    }
+    y = 1
+    for (i = 0; i < len(a); i += 1) {
+        if ((type(a[i]) == type(b[i])) && (type(a[i]) == "float" || type(a[i]) == "string")) {
+            if (a[i] != b[i]) {
+                y = 0
+                i = N
             }
+        } else if (type(a[i]) == "list" && type(b[i]) == "list") {
+            if (!deepeq(a[i], b[i])) {
+                y = 0
+                i = N
+            }
+        } else {
+            y = 0
+            i = N
         }
     }
-    return out
+    return y
 }
 
 /*

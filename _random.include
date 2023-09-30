@@ -12,22 +12,20 @@ list randlist(float n) {
 }
 
 /*
-    Shuffles a list
+    Shuffles a list in place
 */
 list shuffle(list x) {
-	list y
 	float i, j
 
-    // use a list to element shuffling type-agnostic
+    // use a list for type-agnostic shuffling
 	list tmp
 	tmp = {}
 
-	y = deepcopy(x)
-	for (i = len(y) - 1; i >= 0; i -= 1) {
+	for (i = len(x) - 1; i >= 0; i -= 1) {
 		j = fround(random())
-		tmp[0] = y[j]
-		y[j] = y[i]
-		y[i] = tmp[0]
+		tmp[0] = x[j]
+		x[j] = x[i]
+		x[i] = tmp[0]
 	}
-	return y
+	return x
 }
