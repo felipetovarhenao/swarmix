@@ -135,10 +135,10 @@ float tanh(float x) {
     return (exp(x) - exp(-x))/(exp(x) + exp(-x))
 }
 
-/*
-    Euclidean distance
+/* 
+    Returns the p-order Minkwoski distance between lists a and b
 */
-float euclid(list a, list b) {
+float minkowski(list a, list b, float p) {
     if (len(a) != len(b)) {
         print('lists must be of same length')
         exit()
@@ -146,14 +146,28 @@ float euclid(list a, list b) {
     
     float i, s
     for (i = 0; i < len(a); i += 1) {
-        s += (a[i] - b[i])^2
+        s += abs(a[i] - b[i])^p
     }
 
-    return s^0.5
+    return s^(1/p)
 }
 
-/*
-    Weighted Euclidean distance
+/* 
+    Returns the Euclidean distance between lists a and b
+*/
+float euclid(list a, list b) {
+    return minkowski(a, b, 2)
+}
+
+/* 
+    Returns the Manhattan distance between lists a and b
+*/
+float manhattan(list a, list b) {
+    return minkowski(a, b, 1)
+}
+
+/* 
+    Returns the weighted Euclidean distance between lists a and b with weights w
 */
 float weuclid(list a, list b, list w) {
     if (len(a) != len(b) || len(w) != len(a)) {

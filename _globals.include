@@ -3,6 +3,8 @@ TWO_PI = 6.28318530718
 
 e = 2.71828182845
 
+INF = 1.e37
+
 // Precomputed factorials for 2^(0 through 9) for faster sin/cos calculation
 _PRECOMP_FACTORIALS = {
     {1, 2, 24, 720, 40320, 3628800, 479001600, 87178291200, 2.0922789888e+13, 6.40237370573e+15}, 

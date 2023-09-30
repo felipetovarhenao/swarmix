@@ -203,10 +203,6 @@ float mel2f(float m) {
     return 700 * (exp(m/1125) - 1)
 }
 
-struct Complex {
-    float re, float im
-}
-
 list dft(list s) {
     float N, n, k, thresh, theta
     list out
@@ -234,7 +230,9 @@ list dft(list s) {
     return out
 }
 
-
+/*
+    Generate an interval cycle with intervals icList from pitch min to pitch max
+*/
 list icgen(list icList, float min, float max) {
     list out
     float i, j, last

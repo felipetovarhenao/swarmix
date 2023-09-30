@@ -1,4 +1,5 @@
 include _globals.include
+include _structs.include
 include _math.include
 include _misc.include
 include _spatial.include

@@ -372,3 +372,80 @@ float normalize(list l) {
     
     return  n
 }
+
+/* 
+    Private generalized function declaration for nearest element search
+*/
+list _generalized_nearest(list l, list x, mfunction f) {
+    // initialize best distance, match, and index
+    float i, bd, bi, d
+    list bm
+    bm = {}
+    bd = INF
+    for (i = 0; i < len(l); i += 1) {
+        d = f(l[i], x)
+        if (d < bd) {
+            bm[0] = l[i]
+            bd = d
+            bi = i
+        }
+    }
+    return {bm[0], bi, bd}
+}
+
+/* 
+    Private function declaration for absolute difference
+*/
+float _absdiff(float a, list b) {
+    return abs(a-b)
+}
+
+/* 
+    Returns the closest element in list l to float element x, as FloatNeighbor struct (value, index, distance)
+    NOTE: using FloatNeighbor as a return type does not work
+*/
+float fclosest(list l, float x) {
+    list y
+    y = _generalized_nearest(l, {x}, _absdiff)
+
+    struct FloatNeighbor n
+    n.value = y[0]
+    n.index = y[1]
+    n.distance = y[2]
+
+    return n
+}
+
+/* 
+    Returns the closest element in list l to list element x, as ListNeighbor struct (value, index, distance)
+    If no distance function is provided, euclidean distance is used.
+    NOTE: using ListNeighbor as a return type does not work
+*/
+list lclosest(list l, list x, mfunction d) {
+    list y
+
+    if (!d) d = euclid
+
+    y = _generalized_nearest(l, x, d)
+
+    struct ListNeighbor n
+    n.value = y[0]
+    n.index = y[1]
+    n.distance = y[2]
+
+    return n
+}
+
+/*
+    Repeats a list x, n times
+*/
+list repeatn(list x, float n) {
+    list y
+    y = {}
+    
+    float i
+    for (i = 0; i < n; i += 1) {
+        y = merge(y, x)
+    }
+    return y
+}
