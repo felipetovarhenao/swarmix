@@ -1,0 +1,33 @@
+/*
+	Return a list of random values between 0 and 1	
+*/
+list randlist(float n) {
+    list y
+    float i
+    y = {}
+    for (i = 0; i < n; i += 1) {
+        y[i] = random()
+    }
+    return y
+}
+
+/*
+    Shuffles a list
+*/
+list shuffle(list x) {
+	list y
+	float i, j
+
+    // use a list to element shuffling type-agnostic
+	list tmp
+	tmp = {}
+
+	y = deepcopy(x)
+	for (i = len(y) - 1; i >= 0; i -= 1) {
+		j = fround(random())
+		tmp[0] = y[j]
+		y[j] = y[i]
+		y[i] = tmp[0]
+	}
+	return y
+}

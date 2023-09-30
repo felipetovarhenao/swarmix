@@ -2,6 +2,9 @@ include _globals.include
 include _math.include
 include _misc.include
 include _spat.include
+include _units.include
+include _lists.include
+include _random.include
 
 printf("
 -------------------------------------\n
@@ -9,4 +12,3 @@ printf("
 -------------------------------------\n
      www.felipe-tovar-henao.com/     \n
 ")
-

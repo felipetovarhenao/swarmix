@@ -133,28 +133,6 @@ float tanh(float x) {
 }
 
 /*
-    Radian to degree conversion
-*/
-float radtodeg(float r) {
-    return (r/PI)*180
-}
-
-/*
-    Degree to radian conversion
-*/
-float degtorad(float d) {
-    return (d/180)*PI
-}
-
-/*
-    Polar to cartesian conversion
-*/
-list poltocar(float a, float m) {
-    if (!m) m = 1
-    return {cos(a) * m, sin(a) * m}
-}
-
-/*
     Euclidean distance
 */
 float euclid(list a, list b) {
@@ -193,30 +171,6 @@ float weuclid(list a, list b, list w) {
 */
 float remap(float x, float inmin, float inmax, float outmin, float outmax) {
     return ((x - inmin) / (inmax - inmin)) * (outmax - outmin) + outmin
-}
-
-/* 
-    Normalizes input list such that the sum of all elements is 1
-*/
-float normalize(list l) {
-    float i, s
-    list n
-
-    n = {}
-    for (i = 0; i < len(l); i += 1) {
-        s += l[i]
-    }
-
-    if (s == 0) {
-        print("Warning: list not normalized — all elements add up to 0")
-        return l
-    }
-
-    for (i = 0; i < len(l); i += 1) {
-        n[i] = l[i] / s
-    }
-    
-    return  n
 }
 
 /*
