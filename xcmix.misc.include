@@ -147,7 +147,7 @@ list markovBuild(list data, float order) { // condensed trial
             list ngr
             ngr = dict[j] // current unique ngram
             for (k = 0; k < len(pstates); k += 1) { // iterate through possible transition states 
-                if (compare(pstates[k], ngr)) { // if current possible state = unique ngram
+                if (deepeq(pstates[k], ngr)) { // if current possible state = unique ngram
                     count += 1 // add to count
                 }
             }

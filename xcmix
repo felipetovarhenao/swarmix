@@ -1,11 +1,11 @@
-include _globals.include
-include _structs.include
-include _math.include
-include _misc.include
-include _spatial.include
-include _units.include
-include _lists.include
-include _random.include
+include xcmix.globals.include
+include xcmix.lists.include
+include xcmix.math.include
+include xcmix.misc.include
+include xcmix.random.include
+include xcmix.spatial.include
+include xcmix.structs.include
+include xcmix.units.include
 
 printf("
 -------------------------------------\n
