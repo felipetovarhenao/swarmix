@@ -30,8 +30,22 @@ float r2c(float r) {
 /* 
     Ratio to semitones
 */
-float r2st(float r, float f) {
+float r2st(float r) {
     return r2c(r)/100
+}
+
+/* 
+    Frequency to MIDI conversion
+*/
+float f2m(float f) {
+    return 69 + 12 * log2(f/440)
+}
+
+/* 
+    MIDI to frequency conversion
+*/
+float m2f(float m) {
+    return 440 * (2 ^ ((m - 69) / 12))
 }
 
 /*

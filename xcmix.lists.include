@@ -1,4 +1,17 @@
 /*
+    Shorthand utility for simple loops
+*/
+list iter(float N, mfunction f) {
+    float i
+    list y
+    y = {}
+    for (i = 0; i < N; i+= 1) {
+        y[i] = f(i)
+    }
+    return y
+}
+
+/*
     Recursively applies a function f to every element in list x
     NOTE: As of 9/30/23, the max. recursion depth level is 2 :(
 */
