@@ -2,47 +2,47 @@ float exp(float n) {
     return pow(e, n)
 }
 
-float log2(float n) {
-   return log(n)/log(2) 
+/*
+    Logarithm base n
+*/
+float logn(float x, float n) {
+   return log(x)/log(n) 
 }
 
+/*
+    Logarithm base 2
+*/
+float log2(float x) {
+   return logn(x, 2)
+}
+
+
+/*
+    Non-recursive implementation of factorial function
+    NOTE: recursive version seems to yield errors
+*/
 float fact(float n) {
     float r, i
     r = 1
     n = abs(n)
     if (n > 1) {
         for (i = 0; i < n; i += 1) {
-            r *= (n - i) 
+            r *= n - i
         }
     }
     return r
 }
 
+/*
+    Modulus operator
+*/
 float modn(float n, float m) {
     return n - m*trunc(n/m)
 }
 
-float _sin_cos(float x, float m) {
-    float r, i, c, t, v
-    r = 0
-    x = modn(x, TWO_PI)
-    for (i = 0; i < 10; i += 1) {
-        c = (-1)^i
-        v = (2 * i + m)
-        t = c * (x^v) / fact(v)
-        r += t
-    }
-    return r
-}
-
-float sin(float x) {
-    return _sin_cos(x, 1)
-}
-
-float cos(float x) {
-    return _sin_cos(x, 0)
-} 
-
+/*
+    Returns the sign of a value.
+*/
 float sign(float x) {
     if (x > 0) {
         return 1
@@ -58,69 +58,132 @@ float fround(float x) {
     return trunc(abs(x) + 0.5) * sign(x)
 }
 
+/*
+    Tangent
+*/
 float tan(float x) {
     return sin(x)/cos(x)
 }
 
-float cosh(float x) {
-    float out, i
-    out = 0
-    for (i = 0; i < 8; i += 1) {
-        out += pow(x, 2*i) / fact(2*i) 
+/*
+    Generalized function definition for sin, cos, sinh, and cosh
+    if h == 1 then hyperbolic
+    if m == 1 then sin else cos
+*/
+float _hypersincos(float x, float m, float h) {
+    // wrap value around to prevent precision errors
+    x = modn(x, TWO_PI)
+
+    // initialize variables
+    float y, v, c, i, s
+    y = 0
+
+    // set base to -1 is function is hyperbolic
+    s = h * 2 - 1
+    
+    // compute terms
+    for (i = 0; i < 10; i += 1) {
+        c = s^i
+        v = 2 * i + m
+        y += c * (x^v) / fact(v) 
     }
-    return out 
+    return y 
 }
 
+/*
+    Sine function
+*/
+float sin(float x) {
+    return _hypersincos(x, 1, 0)
+}
+
+/*
+    Cosine function
+*/
+float cos(float x) {
+    return _hypersincos(x, 0, 0)
+} 
+
+/*
+    Hyperbolic sine function
+*/
 float sinh(float x) {
-    float out, i
-    out = 0
-    for (i = 0; i < 8; i += 1) {
-        out += pow(x, 2*i+1) / fact(2*i+1) 
-    }
-    return out 
+    return _hypersincos(x, 1, 1)
 }
 
+/*
+    Hyperbolic cosine function
+*/
+float cosh(float x) {
+    return _hypersincos(x, 0, 1)
+}
+
+/*
+    Hyperbolic tangent function
+*/
 float tanh(float x) {
     return (exp(x) - exp(-x))/(exp(x) + exp(-x))
 }
 
+/*
+    Radian to degree conversion
+*/
 float radtodeg(float r) {
     return (r/PI)*180
 }
 
+/*
+    Degree to radian conversion
+*/
 float degtorad(float d) {
     return (d/180)*PI
 }
 
+/*
+    Polar to cartesian conversion
+*/
 list poltocar(float a, float m) {
     if (!m) m = 1
     return {cos(a) * m, sin(a) * m}
 }
 
+/*
+    Euclidean distance
+*/
 float euclid(list a, list b) {
     if (len(a) != len(b)) {
         print('lists must be of same length')
         exit()
     }
+    
     float i, s
     for (i = 0; i < len(a); i += 1) {
         s += (a[i] - b[i])^2
     }
+
     return s^0.5
 }
 
-list weuclid(list la, list lb, list w) {
-    float i, out
-    if (len(la) == len(lb) && len(la) == len(w)) {
-        list lab
-        for (i = 0; i < len(la); i += 1) {
-            lab[i] = pow(la[i] - lb[i], 2) * w[i]
-        }
-        out = sqrt(reduce(lab))
+/*
+    Weighted Euclidean distance
+*/
+float weuclid(list a, list b, list w) {
+    if (len(a) != len(b) || len(w) != len(a)) {
+        print('lists must be of same length')
+        exit()
     }
-    return out 
+    
+    float i, s
+    for (i = 0; i < len(a); i += 1) {
+        s += w[i] * (a[i] - b[i])^2
+    }
+
+    return s^0.5
 }
 
+/* 
+    Scaling function
+*/
 float remap(float x, float inmin, float inmax, float outmin, float outmax) {
     return ((x - inmin) / (inmax - inmin)) * (outmax - outmin) + outmin
 }
@@ -149,14 +212,17 @@ float normalize(list l) {
     return  n
 }
 
-float clip(float i, float min, float max) {
-    float out
-    if (i < min) {
-        out = min
-    } else if (i > max) {
-        out = max
+/*
+    Clips input value with lower and upper bounds
+*/
+float clip(float x, float l, float u) {
+    float y
+    if (x < l) {
+        y = l
+    } else if (x > u) {
+        y = u
     } else {
-        out = i
+        y = x
     }
-    return out
+    return y
 }
