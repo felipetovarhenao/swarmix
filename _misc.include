@@ -62,7 +62,21 @@ list rissAmps(float T,  float numv, float v) {
 
 
 
-list fpos(list l, float e) {
+list findex(list l, float x) {
+    float i, j
+    list y
+    j = 0
+    for (i = 0; i < len(l); i += 1) {
+        if (l[i] == x) {
+            y[j] = i
+            j += 1
+        }
+    }
+    return y
+}
+
+
+list strindex(list l, string e) {
     float i, j
     list out
     j = 0
@@ -75,27 +89,15 @@ list fpos(list l, float e) {
     return out
 }
 
-
-list spos(list l, string e) {
+list listindex(list l, list e) {
     float i, j
-    list out
-    j = 0
-    for (i = 0; i < len(l); i += 1) {
-        if (l[i] == e) {
-            out[j] = i
-            j += 1
-        }
-    }
-    return out
-}
-
-list lpos(list l, list e) {
-    float i, j
+    string x
+    x = l2str(e)
     list out
     j = 0
     out = {}
     for (i = 0; i < len(l); i += 1) {
-        if (ltos(l[i]) == ltos(e)) {
+        if (type(l[i]) == 'list' && l2str(l[i]) == x) {
             out[j] = i
             j += 1
         }
@@ -132,7 +134,7 @@ list markovBuild(list data, float order) { // condensed trial
         countList = {} // count/number of repeated transitions per state
         k = 0 // index of possible states
         for (j = 0; j < len(ngrams); j += 1) { // iterate through ngram sequence
-            if (compare(current, ngrams[j])) { // is current state = current ngram?
+            if (deepeq(current, ngrams[j])) { // is current state = current ngram?
                 if (j + 1 < len(ngrams)) { // filter out indexing past number of ngrams in sequence
                     pstates[k] = ngrams[j + 1] // include next ngram in sequence as possible transition
                     k += 1
@@ -231,7 +233,8 @@ list dft(list s) {
     }
     return out
 }
-//print_on(1)
+
+
 list icgen(list icList, float min, float max) {
     list out
     float i, j, last
@@ -258,7 +261,7 @@ list icgen(list icList, float min, float max) {
 //     prod = rules[1]
 //     for (i = 0; i < len(axiom); i += 1) {
 //         list tmpindex
-//         tmpindex = spos(alpha, axiom[i])
+//         tmpindex = strindex(alpha, axiom[i])
 //         if (len(tmpindex) > 0) {
 //             out = out + prod[tmpindex[0]]
 //         }

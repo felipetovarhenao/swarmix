@@ -37,7 +37,7 @@ float r2st(float r, float f) {
 /*
     List to string
 */
-string ltos(list l_) {
+string l2str(list l) {
     string out
     float i
     out = ""

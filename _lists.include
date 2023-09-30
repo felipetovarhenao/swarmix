@@ -159,7 +159,7 @@ list merge(list la, list lb) {
 }
 
 /*
-    Matrix transposition
+    Matrix transtrindexition
 */
 list mattrans(list mat) {
     list out
@@ -292,7 +292,7 @@ list thin(list l) {
 /*
     Returns an index map of a list
 */
-list indexremap(list l) {
+list indexmap(list l) {
     float i, j, k
     list dict, out
     dict = thin(l)
