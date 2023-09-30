@@ -3,38 +3,38 @@
     NOTE: As of 9/30/23, the max. recursion depth level is 2 :(
 */
 list mapelem(list x, mfunction f) {
-	float i
-	list y
-	y = {}
-	for (i = 0; i < len(x); i += 1) {
-		if (type(x[i]) == 'list') {
-			y[i] = mapelem(x[i], f)
-		} else {
-			y[i] = f(x[i])
-		}
-	}
-	return y
+    float i
+    list y
+    y = {}
+    for (i = 0; i < len(x); i += 1) {
+        if (type(x[i]) == 'list') {
+            y[i] = mapelem(x[i], f)
+        } else {
+            y[i] = f(x[i])
+        }
+    }
+    return y
 }
 
 /*
-	Deep-copies a list x.
+    Deep-copies a list x.
 */
 list deepcopy(list x) {
-	float i
-	list y
-	y = {}
-	for (i = 0; i < len(x); i += 1) {
-		if (type(x[i]) == 'list') {
-			y[i] = deepcopy(x[i])
-		} else {
-			y[i] = x[i]
-		}
-	}
-	return y
+    float i
+    list y
+    y = {}
+    for (i = 0; i < len(x); i += 1) {
+        if (type(x[i]) == 'list') {
+            y[i] = deepcopy(x[i])
+        } else {
+            y[i] = x[i]
+        }
+    }
+    return y
 }
 
 /* 
-	Reverses the order of element in a list x in place
+    Reverses the order of element in a list x in place
 */
 list rev(list x) {
     float i, j, N
@@ -54,7 +54,7 @@ list rev(list x) {
 
 
 /*
-	Returns the 1st derivative or deltas between adjacent elements
+    Returns the 1st derivative or deltas between adjacent elements
 */
 list x2dx(list x) {
     float i
@@ -67,7 +67,7 @@ list x2dx(list x) {
 }
 
 /*
-	Applies the input deltas or derivatives to the starting valeu
+    Applies the input deltas or derivatives to the starting valeu
 */
 list dx2x(list dx, float s) {
     float i
@@ -80,26 +80,26 @@ list dx2x(list dx, float s) {
 }
 
 /* 
-	Sorts a list numerically in place (Bubble-sort)
+    Sorts a list numerically in place (Bubble-sort)
 */
 list sort(list x) {
-	float i, j, n
-	n = len(x)
-	for (i = 0; i < n - 1; i += 1) {
-		for (j = 0; j < n - i - 1; j += 1) {
-			if (x[j] > x[j + 1]) {
-				float tmp
-				tmp = x[j]
-				x[j] = x[j + 1]
-				x[j + 1] = tmp
-			}
-		}
-	}
-	return x
+    float i, j, n
+    n = len(x)
+    for (i = 0; i < n - 1; i += 1) {
+        for (j = 0; j < n - i - 1; j += 1) {
+            if (x[j] > x[j + 1]) {
+                float tmp
+                tmp = x[j]
+                x[j] = x[j + 1]
+                x[j + 1] = tmp
+            }
+        }
+    }
+    return x
 }
 
 /*
-	Slices a list. Negative indices for right-to-left indexing are allowed.
+    Slices a list. Negative indices for right-to-left indexing are allowed.
 */
 list slice(list x, float n) {
     float i, N
@@ -123,7 +123,7 @@ list slice(list x, float n) {
 } 
 
 /*
-	Groups list elements into g-sized sub-lists
+    Groups list elements into g-sized sub-lists
 */
 list group(list l, float g) {
     float i, j
@@ -146,7 +146,7 @@ list group(list l, float g) {
 }
 
 /*
-	Merges two lists
+    Merges two lists
 */
 list merge(list la, list lb) {
     float i
@@ -159,36 +159,36 @@ list merge(list la, list lb) {
 }
 
 /*
-	Matrix transposition
+    Matrix transposition
 */
 list mattrans(list mat) {
-	list out
-	float row, col, nrows, ncols
-	out = {}
-	nrows = len(mat)
-	ncols = len(mat[0])
-	for (col = 0; col < ncols; col += 1) {
-		list outRow
-		outRow = {}
-		for (row = 0; row < nrows; row += 1) {
-			list thisRow
-			thisRow = mat[row]
-			outRow[row] = thisRow[col]
-		}
-		out[col] = outRow
-	}
-	return out
+    list out
+    float row, col, nrows, ncols
+    out = {}
+    nrows = len(mat)
+    ncols = len(mat[0])
+    for (col = 0; col < ncols; col += 1) {
+        list outRow
+        outRow = {}
+        for (row = 0; row < nrows; row += 1) {
+            list thisRow
+            thisRow = mat[row]
+            outRow[row] = thisRow[col]
+        }
+        out[col] = outRow
+    }
+    return out
 }
 
 
 /*
-	Returns the elements between starting (inclusive) and ending (non-inclusive) indices.
+    Returns the elements between starting (inclusive) and ending (non-inclusive) indices.
 */
 list indexrange(list l, float st, float end) {
     float i
     list out
     out = {}
-	end = min(end, len(l))
+    end = min(end, len(l))
     for (i = 0; i < abs(end-st); i += 1) {
         out[i] = l[st + i]
     }
@@ -196,7 +196,7 @@ list indexrange(list l, float st, float end) {
 }
 
 /*
-	Generates frames or windows from an input array
+    Generates frames or windows from an input array
 */
 list frames(list l, float ws, float hs) {
     list out
@@ -213,7 +213,7 @@ list frames(list l, float ws, float hs) {
 }
 
 /*
-	Performs string-based deep equality comparison between 2 lists
+    Performs string-based deep equality comparison between 2 lists
 */
 float deepeq(list a, list b) {
     float y, i, N
@@ -242,7 +242,7 @@ float deepeq(list a, list b) {
 }
 
 /*
-	Recursively adds all values in a list
+    Recursively adds all values in a list
 */
 float reduce(list l) {
     float i, out
@@ -260,7 +260,7 @@ float reduce(list l) {
 }
 
 /*
-	Removes duplicate elements in a list
+    Removes duplicate elements in a list
 */
 list thin(list l) {
     float i, j, k
@@ -290,7 +290,7 @@ list thin(list l) {
 }
 
 /*
-	Returns an index map of a list
+    Returns an index map of a list
 */
 list indexremap(list l) {
     float i, j, k
@@ -317,7 +317,7 @@ list indexremap(list l) {
 }
 
 /*
-	Flattens a list
+    Flattens a list
 */
 list flat(list l) {
     float i, j

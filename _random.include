@@ -1,5 +1,5 @@
 /*
-	Return a list of random values between 0 and 1	
+    Return a list of random values between 0 and 1	
 */
 list randlist(float n) {
     list y
@@ -15,17 +15,17 @@ list randlist(float n) {
     Shuffles a list in place
 */
 list shuffle(list x) {
-	float i, j
+    float i, j
 
     // use a list for type-agnostic shuffling
-	list tmp
-	tmp = {}
+    list tmp
+    tmp = {}
 
-	for (i = len(x) - 1; i >= 0; i -= 1) {
-		j = fround(random())
-		tmp[0] = x[j]
-		x[j] = x[i]
-		x[i] = tmp[0]
-	}
-	return x
+    for (i = len(x) - 1; i >= 0; i -= 1) {
+        j = fround(random())
+        tmp[0] = x[j]
+        x[j] = x[i]
+        x[i] = tmp[0]
+    }
+    return x
 }

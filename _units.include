@@ -21,21 +21,21 @@ list pol2car(float a, float m) {
 }
 
 /* 
-	Ratio to cents
+    Ratio to cents
 */
 float r2c(float r) {
-	return log2(r)*1200
+    return log2(r)*1200
 }
 
 /* 
-	Ratio to semitones
+    Ratio to semitones
 */
 float r2st(float r, float f) {
-	return r2c(r)/100
+    return r2c(r)/100
 }
 
 /*
-	List to string
+    List to string
 */
 string ltos(list l_) {
     string out
