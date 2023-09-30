@@ -1,10 +1,12 @@
-include globals.sco
-include math.sco
-include misc.sco
-include spat.sco
+include _globals.include
+include _math.include
+include _misc.include
+include _spat.include
+
 printf("
 -------------------------------------\n
   xcmix library loaded successfully! \n
 -------------------------------------\n
      www.felipe-tovar-henao.com/     \n
 ")
+
