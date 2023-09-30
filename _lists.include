@@ -213,7 +213,7 @@ list frames(list l, float ws, float hs) {
 }
 
 /*
-    Performs string-based deep equality comparison between 2 lists
+    Performs deep equality comparison between 2 lists
 */
 float deepeq(list a, list b) {
     float y, i, N
