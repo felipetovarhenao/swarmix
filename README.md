@@ -9,13 +9,13 @@ _Coming soon..._
 
 ### Installation
 
-In the root folder of the RTCmix tree (typically `${HOME}/RTcmix`), create a new folder named `minclude`, and move all `xcmix` files into that folder.
+In the root folder of the RTCmix tree (typically `${HOME}/RTcmix`), create a new folder named `minclude`, and move `xcmix.lib` and the `xcmix` folder into that folder.
 
 ### Usage
 
 To use `xcmix`, include the following line at the top of your script:
 ```
-include xcmix
+include xcmix.lib
 ```
 
 ### License

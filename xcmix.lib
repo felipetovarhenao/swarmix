@@ -1,0 +1,15 @@
+include xcmix/globals.include
+include xcmix/lists.include
+include xcmix/math.include
+include xcmix/misc.include
+include xcmix/random.include
+include xcmix/spatial.include
+include xcmix/structs.include
+include xcmix/units.include
+
+printf("
+-------------------------------------\n
+  xcmix library loaded successfully! \n
+-------------------------------------\n
+     www.felipe-tovar-henao.com/     \n
+")
