@@ -92,19 +92,30 @@ list dx2x(list dx, float s) {
     return x 
 }
 
-/* 
-    Sorts a list numerically in place (Bubble-sort)
+/*
+    Dummy function
 */
-list sort(list x) {
+float _thru(float x) {
+    return x
+}
+
+/* 
+    Sorts a list numerically in place (Bubble-sort). An optional access function can be given to sort non-float elements
+*/
+list sort(list x, mfunction f) {
     float i, j, n
+    list tmp
     n = len(x)
+
+    if (!f) {
+        f = _thru
+    }
     for (i = 0; i < n - 1; i += 1) {
         for (j = 0; j < n - i - 1; j += 1) {
-            if (x[j] > x[j + 1]) {
-                float tmp
-                tmp = x[j]
+            if (f(x[j]) > f(x[j + 1])) {
+                tmp[0] = x[j]
                 x[j] = x[j + 1]
-                x[j + 1] = tmp
+                x[j + 1] = tmp[0]
             }
         }
     }
