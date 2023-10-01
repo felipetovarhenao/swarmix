@@ -13,3 +13,8 @@ struct ListNeighbor {
 struct Complex {
     float re, float im
 }
+
+struct Fraction {
+	float n
+	float d
+}

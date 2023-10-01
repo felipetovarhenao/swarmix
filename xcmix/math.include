@@ -204,3 +204,13 @@ float clip(float x, float l, float u) {
     }
     return y
 }
+
+/* 
+    Greatest common denominator
+*/
+float gcd(float a, float b) {
+    if (b == 0) {
+        return a
+    }
+    return gcd(b, a % b)
+}
