@@ -1,11 +1,9 @@
-include xcmix/globals.include
-include xcmix/lists.include
-include xcmix/math.include
-include xcmix/misc.include
-include xcmix/random.include
-include xcmix/spatial.include
-include xcmix/structs.include
-include xcmix/units.include
+include xcmix/conversion/__index__.sco
+include xcmix/lists/__index__.sco
+include xcmix/math/__index__.sco
+include xcmix/misc/__index__.sco
+include xcmix/random/__index__.sco
+include xcmix/utils/__index__.sco
 
 printf("
 -------------------------------------\n

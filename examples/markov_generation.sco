@@ -23,7 +23,7 @@ events = datasetList[dsIndex]
 sclList = {0.6, 1, 1, 1.2, 0.4, 0.2}
 
 dictionary = thin(events) // filter out list repetitions in 'events'
-eventsIndex = indexmap(events) // replace lists in events with their index, accounting for repetitions
+eventsIndex = tokenize(events) // replace lists in events with their index, accounting for repetitions
 order = 2 // order of markov model/chain
 eventSequence = markov(eventsIndex, order, 750) // build and run markov chain | markov(data, nth_order, iterations)
 

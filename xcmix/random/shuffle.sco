@@ -1,19 +1,9 @@
-/*
-    Return a list of random values between 0 and 1	
-*/
-list randlist(float n) {
-    list y
-    float i
-    y = {}
-    for (i = 0; i < n; i += 1) {
-        y[i] = random()
-    }
-    return y
-}
-
-/*
-    Shuffles a list in place
-*/
+/**
+ * @brief Shuffles a list x in place
+ * 
+ * @param x list
+ * @return list 
+ */
 list shuffle(list x) {
     float i, j
 
