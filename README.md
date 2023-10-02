@@ -1,7 +1,7 @@
 
 # **swarmix**: Swiss army knife for cmix
 
-<img src="logo.png" height="60px"/>
+<img src="logo.png" height="150px"/>
 
 ### Description
 
