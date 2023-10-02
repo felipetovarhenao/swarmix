@@ -1,4 +1,4 @@
-include xcmix
+include swarmix
 
 sr = 44100
 outchans = 2

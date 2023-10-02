@@ -5,7 +5,7 @@ if (!sf) {
 	exit()
 }
 
-include xcmix
+include swarmix
 
 sr = 48000
 outchans = 2
