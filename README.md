@@ -1,21 +1,24 @@
-# **swarmix**: Extended RTcmix Library
+
+# **swarmix**: Swiss army knife for cmix
+
+<img src="logo.png" height="60px"/>
 
 ### Description
 
 **swarmix** is a third-party library for the RTcmix scripting language. The library includes of a wide variety of functions for data processing, unit conversion, mathematical functions, and more.
 
 ### Documentation
-_Coming soon..._
+At the moment, the documentation for **swarmix** is limited and conveyed through docstrings found at the top of each function declaration.
 
 ### Installation
 
-In the root folder of the RTCmix tree (typically `${HOME}/RTcmix`), create a new folder named `minclude`, and move `swarmix.lib` and the `swarmix` folder into that folder.
+In the root folder of the RTCmix tree (typically `${HOME}/RTcmix`), create a new folder named `minclude`, and move `swarmix.sco` and the `swarmix` folder into that folder.
 
 ### Usage
 
 To use `swarmix`, include the following line at the top of your script:
 ```
-include swarmix.lib
+include swarmix.sco
 ```
 
 ### License
