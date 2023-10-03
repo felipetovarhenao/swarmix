@@ -1,8 +1,8 @@
 /**
  * @brief Location to amplitude conversion
  * 
- * @param loc 2D listener location 
- * @param s list of 2D speaker location
+ * @param loc xy coordinates of listener location
+ * @param s list of xy coordinates of sources
  * @return list 
  */
 list loc2amp(list loc, list s) {
