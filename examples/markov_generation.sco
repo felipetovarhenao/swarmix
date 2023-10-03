@@ -1,4 +1,4 @@
-include swarmix
+include swarmix.sco
 
 sr = 48000
 outchans = 2
