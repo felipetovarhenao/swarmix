@@ -6,5 +6,5 @@
  * @return list 
  */
 list vecdiv(list a, list b) {
-	return _vecop(a, 1 / b, _mul)
+    return _vecop(a, 1 / b, _mul)
 }

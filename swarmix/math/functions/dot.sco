@@ -6,5 +6,5 @@
  * @return list 
  */
 list dot(list a, list b) {
-	return reduce(vecmul(a, b))
+    return reduce(vecmul(a, b))
 }

@@ -6,5 +6,5 @@
  * @return float 
  */
 float _pow(float a, float b) {
-	return a^b
+    return a^b
 }
