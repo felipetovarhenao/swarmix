@@ -10,6 +10,6 @@ list knnf(list l, float x, float k) {
     if (!k) k = 1
     list y
     y = _nns(l, {x}, absdiff)
-    y = mapelem(firstn(y, k), _f2fneighbor, 1)
+    y = mapelem(firstn(y, k), _l2fneighbor, 1)
     return y
 }

@@ -5,7 +5,7 @@
  * @param x list
  * @return list 
  */
-list _l2fneighbor(list x) {
+list _l2lneighbor(list x) {
     struct ListNeighbor n
     n.value = x[0]
     n.index = x[1]
