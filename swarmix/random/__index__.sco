@@ -4,6 +4,8 @@ include swarmix/random/_randlist.sco
 include swarmix/random/_random.sco
 include swarmix/random/_trand.sco
 include swarmix/random/irandlist.sco
+include swarmix/random/nrand.sco
+include swarmix/random/nrandlist.sco
 include swarmix/random/randchoice.sco
 include swarmix/random/randlist.sco
 include swarmix/random/randomlist.sco
