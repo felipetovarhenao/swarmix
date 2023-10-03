@@ -1,3 +1,11 @@
+/**
+ * @brief Returns N linear interpolations between point a and b
+ * 
+ * @param a point
+ * @param b point
+ * @param N number of interpolations
+ * @return list 
+ */
 list interpolate(list a, list b, float N) {
 	if (len(a) != len(b)) {
 		print("Lists must have the same length")
