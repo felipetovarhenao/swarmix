@@ -15,6 +15,7 @@ include swarmix/math/functions/fold.sco
 include swarmix/math/functions/fround.sco
 include swarmix/math/functions/gausspdf.sco
 include swarmix/math/functions/gcd.sco
+include swarmix/math/functions/ismat.sco
 include swarmix/math/functions/log2.sco
 include swarmix/math/functions/logistic.sco
 include swarmix/math/functions/logn.sco

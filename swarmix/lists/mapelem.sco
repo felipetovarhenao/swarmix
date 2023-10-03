@@ -23,7 +23,7 @@ list mapelem(list x, mfunction f, float d) {
                 tmp = mapelem(x[i], f, d)
                 y[i] = tmp
             }
-        } else {
+        } else if (d == 0) {
             y[i] = f(x[i])
         }
     }
