@@ -6,5 +6,5 @@
  * @return list 
  */
 list vecsub(list a, list b) {
-	return _vecop(a, b * -1, _add)
+    return _vecop(a, b * -1, _add)
 }
