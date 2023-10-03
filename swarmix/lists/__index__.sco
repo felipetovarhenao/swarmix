@@ -9,6 +9,7 @@ include swarmix/lists/flat.sco
 include swarmix/lists/frames.sco
 include swarmix/lists/group.sco
 include swarmix/lists/indexrange.sco
+include swarmix/lists/interpolate.sco
 include swarmix/lists/iter.sco
 include swarmix/lists/linspace.sco
 include swarmix/lists/listindex.sco

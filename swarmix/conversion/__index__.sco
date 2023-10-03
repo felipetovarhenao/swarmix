@@ -4,6 +4,7 @@ include swarmix/conversion/f2m.sco
 include swarmix/conversion/f2mel.sco
 include swarmix/conversion/l2str.sco
 include swarmix/conversion/loc2amp.sco
+include swarmix/conversion/m2f.sco
 include swarmix/conversion/mel2f.sco
 include swarmix/conversion/pol2car.sco
 include swarmix/conversion/r2c.sco
