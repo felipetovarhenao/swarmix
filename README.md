@@ -5,7 +5,7 @@
 
 ### Description
 
-**swarmix** is a third-party library for the RTcmix scripting language. The library includes of a wide variety of functions for data processing, unit conversion, mathematical functions, and more.
+**swarmix** is a third-party library for the RTcmix scripting language. The library includes a wide variety of functions for data processing, unit conversion, mathematical functions, and more.
 
 ### Documentation
 At the moment, the documentation for **swarmix** is limited and conveyed through docstrings found at the top of each function declaration.
@@ -17,8 +17,14 @@ In the root folder of the RTCmix tree (typically `${HOME}/RTcmix`), create a new
 ### Usage
 
 To use `swarmix`, include the following line at the top of your script:
-```
+```c
 include swarmix.sco
+```
+
+If you're using John Gibson's [RTcmixShell](https://cecm.indiana.edu/rtcmix/rtcmix-app.html) application, you need to include the full path:
+
+```c
+include "${HOME}/RTcmix/minclude/swarmix.sco"
 ```
 
 ### License
