@@ -1,4 +1,5 @@
 include swarmix/lists/_getindex.sco
+include swarmix/lists/arithmser.sco
 include swarmix/lists/deepcopy.sco
 include swarmix/lists/deepeq.sco
 include swarmix/lists/depth.sco
