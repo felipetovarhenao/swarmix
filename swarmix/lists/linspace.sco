@@ -1,19 +1,19 @@
 /**
- * @brief Generates an n-step linear space from st to end
+ * @brief Generates an n-step linear space from a to b
  * 
- * @param st starting value
- * @param end ending value
+ * @param a starting value
+ * @param b ending value
  * @param n number of steps
  * @return list 
  */
-list linspace(float st, float end, float n) {
+list linspace(float a, float b, float n) {
     float i, r, s, a
     list y
     y = {}
 
-    r = end - st
+    r = b - a
     s = r / (n - 1)
-    a = st
+    a = a
     
     for (i = 0; i < n; i += 1) {
         y[i] = a

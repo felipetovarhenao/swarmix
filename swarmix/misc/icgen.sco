@@ -1,31 +1,31 @@
 /**
- * @brief Generates an interval cycle with intervals icList from pitch min to pitch max
+ * @brief Generates an interval cycle with intervals x from pitch a to pitch b
  * 
- * @param icList 
- * @param min 
- * @param max 
+ * @param x 
+ * @param a 
+ * @param b 
  * @return list 
  */
-list icgen(list icList, float min, float max) {
-    list out
-    float i, j, last
+list icgen(list x, float a, float b) {
+    list y
+    float i, j
     i = 1
     j = 0
-    out = {min}
-    while (out[len(out) - 1] < max) {
-        ic = icList[j]
-        out[i] = out[i-1] + ic
+    y = {a}
+    while (y[len(y) - 1] < b) {
+        ic = x[j]
+        y[i] = y[i-1] + ic
         i += 1
-        j = (j + 1) % len(icList)
+        j = (j + 1) % len(x)
     }
-    return out
+    return y
 }
 
 // string lsys(list rules, string axiom, float gen) {
 //     list alpha, prod
 //     float i, g
-//     string out
-//     out = ""
+//     string y
+//     y = ""
 //     rules = mattrans(rules)
 //     alpha = rules[0]
 //     prod = rules[1]
@@ -33,14 +33,14 @@ list icgen(list icList, float min, float max) {
 //         list tmpindex
 //         tmpindex = strindex(alpha, axiom[i])
 //         if (len(tmpindex) > 0) {
-//             out = out + prod[tmpindex[0]]
+//             y = y + prod[tmpindex[0]]
 //         }
 //     }
 //     gen -= 1
 //     if (gen > 0) {
-//         out = lsys(rules, out, gen)
+//         y = lsys(rules, y, gen)
 //     } else {
-//         return out
+//         return y
 //     }
-//     return out
+//     return y
 // }

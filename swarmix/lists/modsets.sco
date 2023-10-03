@@ -3,13 +3,13 @@
 */
 list modsets(list l, list s) {
     float i, j
-    list out
+    list y
     for (i = 0; i < len(l); i += 1) {
-        list sl
+        list r
         for (j = 0; j < len(s); j += 1) {
-            sl[j] = l[(s[j] + i) % len(l)]
+            r[j] = l[(s[j] + i) % len(l)]
         }
-        out[i] = sl
+        y[i] = r
     }
-    return out
+    return y
 }

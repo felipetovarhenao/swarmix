@@ -1,13 +1,13 @@
 /**
- * @brief Scales a value x with domain inmin to inmax, to a value with domain outmin to outmax.
+ * @brief Scales a value x with domain a to b, to a value with domain c to d.
  * 
  * @param x value
- * @param inmin input domain minimum
- * @param inmax input domain maximum
- * @param outmin output domain minimum
- * @param outmax output domain maximum
+ * @param a input domain minimum
+ * @param b input domain maximum
+ * @param c output domain minimum
+ * @param d output domain maximum
  * @return float 
  */
-float remap(float x, float inmin, float inmax, float outmin, float outmax) {
-    return ((x - inmin) / (inmax - inmin)) * (outmax - outmin) + outmin
+float remap(float x, float a, float b, float c, float d) {
+    return ((x - a) / (b - a)) * (d - c) + c
 }
