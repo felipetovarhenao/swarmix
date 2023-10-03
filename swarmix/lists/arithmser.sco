@@ -7,5 +7,5 @@
  * @return list 
  */
 list arithmser(float a, float b, float s) {
-	return iter(b, _thru, a, s)
+    return iter(b, _thru, a, s)
 }
