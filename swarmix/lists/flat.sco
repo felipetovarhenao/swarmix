@@ -5,18 +5,17 @@
  * @return list 
  */
 list flat(list l) {
-    float i, j
-    list out
-    j = 0
+    float i
+    list y
+    y = {}
     for (i = 0; i < len(l); i += 1) {
         if (type(l[i]) != "list") {
-            out[j] = l[i]
-            j += 1
+            y = merge(y, {l[i]})
         } else {
-            l[i] = flat(l[i])
-            out = merge(out, l[i])
-            j += 1
+            list tmp 
+            tmp = flat(l[i])
+            y = merge(y, tmp)
         }
     }
-    return out
+    return y
 }

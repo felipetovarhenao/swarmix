@@ -18,9 +18,9 @@ float reduce(list l, mfunction f, float s) {
         if (type(l[i]) == "float") {
             y = f(y, l[i])
         } else if (type(l[i]) == "list") {
-            float temp
-            temp = reduce(l[i], f, s)
-            y = f(y, temp)
+            float tmp
+            tmp = reduce(l[i], f, s)
+            y = f(y, tmp)
         }
     }
     return y

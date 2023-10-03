@@ -10,7 +10,9 @@ list deepcopy(list x) {
     y = {}
     for (i = 0; i < len(x); i += 1) {
         if (type(x[i]) == 'list') {
-            y[i] = deepcopy(x[i])
+            list tmp
+            tmp = deepcopy(x[i])
+            y[i] = tmp
         } else {
             y[i] = x[i]
         }

@@ -1,6 +1,5 @@
 /**
  * @brief Recursively applies a function f to every element with depth d in list x
- * NOTE: As of 9/30/23, the max. recursion depth level is 2 :(
  * 
  * @param x list to map
  * @param f function with signature (any) -> any
@@ -20,7 +19,9 @@ list mapelem(list x, mfunction f, float d) {
             if (d > 0 && depth(x[i]) == d) {
                 y[i] = f(x[i])    
             } else {
-                y[i] = mapelem(x[i], f, d)
+                list tmp
+                tmp = mapelem(x[i], f, d)
+                y[i] = tmp
             }
         } else {
             y[i] = f(x[i])

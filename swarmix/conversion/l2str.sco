@@ -12,7 +12,9 @@ string l2str(list l) {
         string s
         s = ""
         if (type(l[i]) == 'list') {
-            s = l2str(l[i])
+            list tmp
+            tmp = l2str(l[i])
+            s = tmp
         } else {
             s = s + l[i]
         }
