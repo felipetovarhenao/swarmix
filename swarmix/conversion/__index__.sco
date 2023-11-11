@@ -1,3 +1,4 @@
+include swarmix/conversion/c2r.sco
 include swarmix/conversion/deg2rad.sco
 include swarmix/conversion/dx2x.sco
 include swarmix/conversion/f2m.sco
