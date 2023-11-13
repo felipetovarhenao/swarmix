@@ -7,19 +7,24 @@
  * @return list 
  */
 list sort(list x, mfunction f) {
-    float i, j, n
+    float i, j, N, k
     list tmp
-    n = len(x)
+    N = len(x)
 
     if (!f) f = _thru
     
-    for (i = 0; i < n - 1; i += 1) {
-        for (j = 0; j < n - i - 1; j += 1) {
+    for (i = 0; i < N - 1; i += 1) {
+        k = 0
+        for (j = 0; j < N - i - 1; j += 1) {
             if (f(x[j]) > f(x[j + 1])) {
+                k =  1
                 tmp[0] = x[j]
                 x[j] = x[j + 1]
                 x[j + 1] = tmp[0]
             }
+        }
+        if (!k) {
+            return x
         }
     }
     return x

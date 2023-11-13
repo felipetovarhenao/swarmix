@@ -1,8 +1,10 @@
 include swarmix/lists/_getindex.sco
 include swarmix/lists/arithmser.sco
+include swarmix/lists/countelem.sco
 include swarmix/lists/deepcopy.sco
 include swarmix/lists/deepeq.sco
 include swarmix/lists/depth.sco
+include swarmix/lists/filterelem.sco
 include swarmix/lists/findex.sco
 include swarmix/lists/firstn.sco
 include swarmix/lists/flat.sco
@@ -19,6 +21,7 @@ include swarmix/lists/mattrans.sco
 include swarmix/lists/merge.sco
 include swarmix/lists/modsets.sco
 include swarmix/lists/normalize.sco
+include swarmix/lists/qsort.sco
 include swarmix/lists/reduce.sco
 include swarmix/lists/repeatn.sco
 include swarmix/lists/rev.sco

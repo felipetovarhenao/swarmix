@@ -10,4 +10,5 @@ printf("
   SWARMIX LIBRARY LOADED SUCCESSFULLY \n
 --------------------------------------\n
       www.felipe-tovar-henao.com/     \n
+--------------------------------------\n
 ")

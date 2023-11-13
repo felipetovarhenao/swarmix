@@ -8,9 +8,8 @@
  */
 list mapelem(list x, mfunction f, float d) {
     float i
-    list y, z
+    list y
     y = {}
-    z = x
     
     if (!d) d = 0
 
