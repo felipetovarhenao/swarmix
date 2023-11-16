@@ -25,6 +25,7 @@ include swarmix/lists/qsort.sco
 include swarmix/lists/reduce.sco
 include swarmix/lists/repeatn.sco
 include swarmix/lists/rev.sco
+include swarmix/lists/samplist.sco
 include swarmix/lists/slice.sco
 include swarmix/lists/sort.sco
 include swarmix/lists/strindex.sco
