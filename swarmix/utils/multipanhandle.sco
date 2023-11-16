@@ -8,6 +8,7 @@
  * @return list of phandles
  */
 list multipanhandle(list a, list s, float r) {
+    if (!r) r = max(1, len(a))*5
     float i, j, t
     list p, h, e
     handle ps
