@@ -5,8 +5,5 @@
  * @return float 
  */
 float sign(float x) {
-    if (x >= 0) {
-        return 1
-    }
-    return -1
+    return (x >= 0) * 2 - 1
 }

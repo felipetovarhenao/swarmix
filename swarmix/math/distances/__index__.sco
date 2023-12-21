@@ -1,4 +1,5 @@
 include swarmix/math/distances/absdiff.sco
+include swarmix/math/distances/abspcdist.sco
 include swarmix/math/distances/euclid.sco
 include swarmix/math/distances/manhattan.sco
 include swarmix/math/distances/minkwoski.sco

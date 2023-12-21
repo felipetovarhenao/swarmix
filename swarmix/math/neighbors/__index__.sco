@@ -5,3 +5,4 @@ include swarmix/math/neighbors/knnf.sco
 include swarmix/math/neighbors/knnl.sco
 include swarmix/math/neighbors/nearestf.sco
 include swarmix/math/neighbors/nearestl.sco
+include swarmix/math/neighbors/nearestpc.sco
