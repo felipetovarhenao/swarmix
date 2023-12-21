@@ -6,14 +6,13 @@
  * @return float 
  */
 float pcdist(float a, float b) {
-    float d1, d2
+    float d1, d2, 
     a = modn(a, 12)
     b = modn(b, 12)
     d1 = b-a
-    d2 = d1-12
+    d2 = d1 + 12 * -sign(d1)
     if (abs(d1) < abs(d2)) {
         return d1
     }
     return d2
-
 }
